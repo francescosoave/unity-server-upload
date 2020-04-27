@@ -24,10 +24,11 @@ To use:
 
 1) Create an empty component, call it DataUploader and attach the DataUploader.cs to it
 2) Create another empty component, call it whatever you like (let's say we call it "Controller") and attach the Controller.cs script to it
-3) Once you have implemented your InputManager component/class you should be able to easily link it to the controller
+3) Link the DataUploader component with the Controller script in the inspector
+4) Once you have implemented your InputManager component/class you should be able to similarly link it to the controller
 
 ## -- extra notes
 
-1) I do have a InputManager component with a InputManager class attached to it, which deals with button presses. I call it in the Update() method of the Controller class
-2) I do have a DataWriter class that writes my csv file, saves it locally. Therefore in the DataUploader class I am loading that .csv file
-3) I have a custom class called StaticData which contains (unsurprisingly) static stuff. This includes the current computer unique ID (Systeminfo.DeviceUniqueID) which is used in the DataUploader class. This is how I identify the machine which uploads the data and prevent infinite uploads
+1) I do have a InputManager component with an InputManager class attached to it, which deals with button presses. I call it in the Update() method of the Controller class
+2) I do have a DataWriter class that writes my stuff in a csv file and saves it locally. That's the file that I am loading in the DataUploader class (`string path` variable)
+3) I have a custom class called StaticData which contains (unsurprisingly) static stuff. This includes the current computer unique ID (SystemInfo.DeviceUniqueIdentifier) which is used in the DataUploader class. This is how I identify the machine which uploads the data and prevent infinite uploads. I add this ID to the name of the file when I save it locally.
